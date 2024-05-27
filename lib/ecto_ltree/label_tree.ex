@@ -43,7 +43,7 @@ defmodule EctoLtree.LabelTree do
   def cast(_), do: :error
 
   @label_size_max 256
-  @label_regex ~r/[A-Za-z0-9_]{1,256}/
+  @label_regex ~r/[A-Za-z0-9_\-]{1,256}/
 
   @spec cast_label(String.t()) :: {:ok, String.t()} | :error
   defp cast_label(string) when is_binary(string) and byte_size(string) <= @label_size_max do
